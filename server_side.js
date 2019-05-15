@@ -34,7 +34,7 @@ server_side.get('/signUpUsers', (req, res) => {
                 body: ' שלום ' + req.query.firstName + '\n ' +
                     'תודה רבה שהצטרפת ל"במקומי ". \n' +
                     ' רשת להחלפות בטוחות לעובדי הוראה.\n' +
-                    'כמעט סיימת את ההרשמה עליך לאשר את התקנון בלינק המצורף.\n' +
+                    'כמעט סיימת את ההרשמה, עליך לאשר את התקנון בלינק המצורף.\n' +
                     'לאחר אישורו,\n יישלח אלייך \n' +
                     'שם משתמש וסיסמה\n' +
                     '\n https://bimkomeadmin.firebaseapp.com/#/taknon?email=' + req.query.email + ' ' +
