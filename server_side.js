@@ -30,15 +30,14 @@ server_side.get('/signUpUsers', (req, res) => {
         user
     })
         .then((response) => {
-            console.log('whatsapp:+972' + req.query.mobileNumber);
             client.messages.create({
-                body: 'שלום ' + req.query.firstName + ' ' +
-                    ' תודה רבה שהצטרפת ל"במקומי". \n' +
-                    ' רשת להחלפות בטוחות לעובדי הוראה.' +
-                    'שם המשתמש שלך הוא .' + req.query.email + ' ' +
-                    'והסיסמא הינה: 123456Aa.' +
-                    'להורדת האפליקציה אנא כנס לקישור הבא: https://play.google.com/store/apps/details?id=com.bimkomy.bimkomy' +
-                    'כדי להתחיל שימוש באפליקציה יש צורך באישור התקנון בקישור הבא: https://bimkomeadmin.firebaseapp.com/#/taknon' +
+                body: ' שלום ' + req.query.firstName + '\n ' +
+                    'תודה רבה שהצטרפת ל"במקומי ". \n' +
+                    ' רשת להחלפות בטוחות לעובדי הוראה.\n' +
+                    'כמעט סיימת את ההרשמה עליך לאשר את התקנון בלינק המצורף.\n' +
+                    'לאחר אישורו,\n יישלח אלייך \n' +
+                    'שם משתמש וסיסמה\n' +
+                    '\n https://bimkomeadmin.firebaseapp.com/#/taknon?email=' + req.query.email + ' ' +
                     'תודה רבה, צוות במקומי.',
                 to: '+972' + req.query.mobileNumber,  // Text this number
                 from: '+972526453007' // From a valid Twilio number
