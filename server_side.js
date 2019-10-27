@@ -23,6 +23,8 @@ let axiosConfig = {
     next();
 }
 
+
+
 server_side.use(allowCrossDomain);
 server_side.use(bodyParser.urlencoded({extended: false}));
 server_side.use(express.json());
@@ -106,6 +108,33 @@ server_side.get('/getAllCities', (req, res) => {
         })
 
 });
+server_side.get('/getAllUsersInCity', (req, res) => {
+    console.log("Connected!");
+    const city = req.query.name;
+    let tmp = '';
+
+    for (var i = city.length - 1; i >= 0; i--) {
+        tmp += city[i];
+    }
+    
+    const url = '/users?cityName=יבנה';
+    console.log(url);
+
+    axios.get(bimkomeServer + '/users',  {   params: {
+        cityName: city
+      }
+    })
+        .then((response) => {
+            console.log(response);
+            res.send(response.data)
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+
+});
+
+
 server_side.post('/signUpGardens', (req, res) => {
     console.log("Connected!");
     const data = req.body;
