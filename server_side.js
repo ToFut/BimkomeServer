@@ -177,5 +177,64 @@ server_side.post('/updateCity', (req, res) => {
 
 });
 
+server_side.get('/allSubHistory', (req, res) => {
+    console.log("Connected!");
+    axios.get(bimkomeServer + '/substitutions')
+        .then((response) => {
+            res.send(response.data)
+        })
+        .catch((error) => {
+        })
+
+});
+
+server_side.get('/getUserById', (req, res) => {
+    console.log("Connected!");
+    const userId = req.query.id;
+    axios.get(bimkomeServer + '/users/' + userId )
+        .then((response) => {
+            res.send(response.data)
+        })
+        .catch((error) => {
+        })
+
+});
+
+server_side.get('/getUserProposalsHistory', (req, res) => {
+    console.log("Connected!");
+    const userId = req.query.id;
+    axios.get(bimkomeServer + '/users/'+ userId +'/proposals/history'  )
+        .then((response) => {
+            res.send(response.data)
+        })
+        .catch((error) => {
+        })
+
+});
+
+server_side.get('/getUserSubstitutionsHistory', (req, res) => {
+    console.log("Connected!");
+    const userId = req.query.id;
+    axios.get(bimkomeServer + '/users/'+ userId +'/substitutions/history'  )
+        .then((response) => {
+            res.send(response.data)
+        })
+        .catch((error) => {
+        })
+
+});
+
+server_side.get('/getUserSubstitutionById', (req, res) => {
+    console.log("Connected!");
+    const userId = req.query.id;
+    axios.get(bimkomeServer + '/substitutions/'+ userId )
+        .then((response) => {
+            res.send(response.data)
+        })
+        .catch((error) => {
+        })
+
+});
+
 server_side.listen(process.env.PORT || 3000, () => console.log(`Bimkome server on port ${port}!`))
 
